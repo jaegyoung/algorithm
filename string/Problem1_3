@@ -1,0 +1,27 @@
+import java.util.*;
+// 문자열에서 가장 긴 단어 표출하기
+class Main{
+    public String solution(String str){
+        String answer="";
+
+        int min = Integer.MIN_VALUE;
+        String[] strings = str.split(" ");
+        for (String x : strings){
+        // 단어의 길이를 비교해서 크면 그 단어가 리턴 값이 된다.
+            int length = x.length();
+            if (length>min){
+            // 모든 단어에 대해 반복하므로 가장 긴 단어가 리턴 값이 됨
+                min=length;
+                answer=x;
+            }
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        //   String str=kb.next();  이거 썼다가 한줄을 받지 못해서 에러 생겼었슴
+        String str=kb.nextLine();
+        System.out.print(T.solution(str));
+    }
+}

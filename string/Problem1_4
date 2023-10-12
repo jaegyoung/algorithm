@@ -1,0 +1,34 @@
+import java.util.*;
+// n이라는 정수를 입력하고 n 개의 단어를 입력합니다.
+//단어를 입력하면 단어의 배열 순서가 바뀐 채로 출력됩니다.
+class Main{
+    public  ArrayList<String> solution(String[] strings){
+        ArrayList<String> answer = new ArrayList<>();
+        // 빈 스트링 타입 배열 생성
+        StringBuilder reversed = new StringBuilder();
+        for (String x : strings){
+        // 받은 배열들을 StringBuilder를 사용해서 뒤집는다.
+            String tmp = new StringBuilder(x).reverse().toString();
+            // 뒤집은 단어 배열에 추가
+            answer.add(tmp);
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int num = kb.nextInt();
+        // 숫자를 받는다.
+        String[] strings = new String[num];
+        // 받은 숫자의 크기를 가진 배열 생성
+        for (int i=0;i<num;i++){
+            String str = kb.next();
+            // 숫자만큼 입력 받는다.
+           strings[i]=str;
+        }
+        for (String x : T.solution(strings)){
+        // 배열의 stirng 갯수만큼 sout 반복한다.
+            System.out.println(x);
+        }
+    }
+}

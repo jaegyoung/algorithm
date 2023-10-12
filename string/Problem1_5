@@ -1,0 +1,35 @@
+import java.util.*;
+// 문자열을 입력 받아 영어만 순서를 뒤집는다.
+class Main{
+    public  String solution(String strings){
+        String answer = "";
+        // 문자배열로 바꾼다.
+        char[] s = strings.toCharArray();
+        int lx=0, rx=strings.length()-1;
+        //0과 문자열-1 인덱스 생성한다.
+        while (lx<rx){
+            // rx 가 클때 반복하지만 우선 한번 실행한다.
+            if (!Character.isAlphabetic(s[lx])) lx++;
+            //lx 번째 문자가 영어가 아니라면 후위 연산 1상승
+            else if (!Character.isAlphabetic(s[rx])) rx--;
+            // rx 번째 문자도 영어가 아니라면 후위연산 -1
+            else {
+                //자바에서 문자 위치 변경할때
+                // 빈 변수를 하나 생성해야 함
+                char tmp = s[lx];
+                s[lx] = s[rx];
+                s[rx] = tmp;
+                lx++;
+                rx--;
+            }
+        }
+        answer=String.valueOf(s);
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String strings = kb.nextLine();
+        System.out.println(T.solution(strings));
+    }
+}

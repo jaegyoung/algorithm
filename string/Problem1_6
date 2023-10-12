@@ -1,0 +1,22 @@
+import java.util.*;
+// 문자열의 연속해서 중복되는 문자는 삭제한다.
+class Main{
+    public  String solution(String strings){
+        String answer = "";
+        //
+        for(int i=0; i<strings.length(); i++){
+            // 문자열의 문자가 i 번째 문자의 위치를 찾을때 현재 값과 같이 나오면 중복이 아님
+            // a, a-1 의 값이 갑을 경우에 a-1의 위치를 찾으면 a 위치가 나옴
+            if(strings.indexOf(strings.charAt(i))==i)
+                answer+=strings.charAt(i);
+
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String strings = kb.nextLine();
+        System.out.println(T.solution(strings));
+    }
+}

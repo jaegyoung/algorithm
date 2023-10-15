@@ -1,0 +1,27 @@
+import java.util.*;
+// 문자열을 입력 받아 앞뒤가 똑같은지 확인한다.
+class Main{
+    public  String solution(String strings){
+        String answer = "YES";
+        String str = strings.toUpperCase();
+        // 대문자로 변경
+        int len = str.length()-1;
+        //문자열의 길이 체크
+        for (int i=0;i<len/2;i++){
+        // 길이의 반만큼 진행한다.
+            if (str.charAt(i)!=str.charAt(len-i)){
+            // i 위치의 값과 i의 반대값이 같은지 확인
+                answer="NO";
+            }
+        }
+        return answer;
+        // 문자배열로 바꾼다.
+
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String strings = kb.next();
+        System.out.println(T.solution(strings));
+    }
+}

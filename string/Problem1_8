@@ -1,0 +1,23 @@
+import java.util.*;
+// 유효한 팰린드롬인지 확인
+// 단 영어문자에 대해서만 체크한다.
+class Main{
+    public  String solution(String strings){
+        String answer = "NO";
+        String str= strings.toUpperCase().replaceAll("[^A-Z]", "");;
+        // 모든 문자를 대문자로 바꾸고 영어가 아닌 문자를 무시하도록 빈공간으로 대체
+        String tmp=new StringBuilder(str).reverse().toString();
+        // 해당 문자열의 리버스 형 하나 생성
+        if(str.equalsIgnoreCase(tmp)) {
+            answer="YES";
+            // 두 문자열이 같다면 예스
+        }
+    return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String strings = kb.nextLine();
+        System.out.println(T.solution(strings));
+    }
+}

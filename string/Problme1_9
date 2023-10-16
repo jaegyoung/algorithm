@@ -1,0 +1,19 @@
+// 내가 시도한 방법
+import java.util.*;
+// 유효한 팰린드롬인지 확인
+// 단 영어문자에 대해서만 체크한다.
+class Main{
+    public  Integer solution(String strings){
+        int answer =0;
+        String str= strings.replaceAll("[^0-9]", "");;
+        // 숫자가 아닌 문자를 없앤다.
+        answer= Integer.parseInt(str);
+    return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String strings = kb.next();
+        System.out.println(T.solution(strings));
+    }
+}

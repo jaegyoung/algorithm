@@ -1,0 +1,27 @@
+import java.util.*;
+class Main {
+    public String solution(String s, int c){
+       StringBuilder answer = new StringBuilder();
+        int chunkSize = 7;
+        int length = s.length();
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < length; i += chunkSize) {
+            int endIndex = Math.min(i + chunkSize, length);
+            String chunk = s.substring(i, endIndex);
+            chunk= chunk.replace("#", "1");
+            chunk= chunk.replace("*","0");
+            int decimalValue = Integer.parseInt(chunk, 2);
+            char asciiCharacter = (char) decimalValue;
+            answer.append(asciiCharacter);
+        }
+        return answer.toString();
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        String str=kb.next();
+        System.out.println( T.solution(str, c));
+    }
+}

@@ -1,0 +1,43 @@
+import java.util.*;
+class Main {
+    public String solution( int[] arraysA, int[] arraysB, int c){
+       String answer ="";
+        for (int i=0; i<c;i++){
+            if(arraysA[i]==arraysB[i]) {
+                answer+="D";
+            }
+            else if(arraysA[i]==1 && arraysB[i]==3) {
+                answer+="A";
+            }
+            else if(arraysA[i]==2 && arraysB[i]==1) {
+                answer+="A";
+            }
+            else if(arraysA[i]==3 && arraysB[i]==2){
+                answer+="A";
+            }
+            else {
+                answer+="B";
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        int[] arraysA= new int[c];
+        int[] arraysB= new int[c];
+        for (int i=0; i<c;i++){
+            arraysA[i]= kb.nextInt();
+        }
+        for (int i=0; i<c;i++){
+            arraysB[i]= kb.nextInt();
+        }
+        for (char x: T.solution(arraysA,arraysB,c).toCharArray()
+             ) {
+            System.out.println(x);
+        }
+
+    }
+}

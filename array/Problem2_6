@@ -1,0 +1,83 @@
+// 내가 시도한 방벙
+import java.util.*;
+class Main {
+
+    public  ArrayList<Integer> solution(int c,int[] array){
+        ArrayList<Integer> answer= new ArrayList<Integer>();
+        for (int x: array){
+            String numStr = Integer.toString(x);
+            String reversedStr = new StringBuilder(numStr).reverse().toString();
+            int reversedNum = Integer.parseInt(reversedStr);
+            // 요 부분에 소수 판별 기능을 넣고 싶은데 잘 안됬음
+            // 또 메서드를 구분해도 되는지 몰랐음
+            if (reversedNum<=1){
+            }
+            for (int i=2;i*i<=reversedNum;i++){
+                if (reversedNum% i ==0){
+                    answer.add(reversedNum);
+                }
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        int [] array = new int[c];
+        for (int i=0;i<c;i++){
+            array[i]=kb.nextInt();
+        }
+        for (int x:T.solution(c,array)
+             ) {
+            System.out.print(x+" ");
+        }
+
+    }
+}
+
+-----------------------------------------
+// 소수 판별 메서드 추가 한 방법
+import java.util.*;
+class Main {
+    boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public  ArrayList<Integer> solution(int c,int[] array){
+        ArrayList<Integer> answer= new ArrayList<Integer>();
+        //에라토스테네스의 체 알고리즘을 사용해야 한다.
+        for (int x: array){
+            String numStr = Integer.toString(x);
+            String reversedStr = new StringBuilder(numStr).reverse().toString();
+            int reversedNum = Integer.parseInt(reversedStr);
+          if (isPrime(reversedNum)){
+              answer.add(reversedNum);
+          }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        int [] array = new int[c];
+        for (int i=0;i<c;i++){
+            array[i]=kb.nextInt();
+        }
+        for (int x:T.solution(c,array)
+             ) {
+            System.out.print(x+" ");
+        }
+
+    }
+}

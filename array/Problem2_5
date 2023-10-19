@@ -1,0 +1,26 @@
+import java.util.*;
+class Main {
+    public int solution(int c){
+        int answer = 0;
+        //에라토스테네스의 체 알고리즘을 사용해야 한다.
+        int[] numArray = new int[c+1];
+        for (int i=2;i<=c;i++){
+            if (numArray[i]==0){
+                answer++;
+                for (int j=i;j<=c;j=j+i) {
+                    numArray[j] = 1;
+                }
+
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        System.out.println(T.solution(c));
+
+    }
+}

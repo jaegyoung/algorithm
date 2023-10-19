@@ -1,0 +1,26 @@
+import java.util.*;
+class Main {
+    public int solution(int c,int[] array){
+        int answer= 0;
+        int num =1;
+        for (int x: array){
+         if (x==1){
+             answer+=num;
+             num++;
+         }else if (x==0){
+             num=1;
+         }
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        int [] array = new int[c];
+        for (int i=0;i<c;i++){
+            array[i]=kb.nextInt();
+        }
+        System.out.println(T.solution(c,array));
+    }
+}

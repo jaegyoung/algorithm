@@ -1,0 +1,31 @@
+import java.util.*;
+class Main {
+    public int[] solution(int c,int[] array){
+        int[] answer= new int[c];
+        for(int i =0; i<c;i++){
+            int num =1;
+            // j를 사용한 for 문을 사용할까 하다가 for each 사용
+            for (int k : array) {
+                if (k > array[i]) {
+                    num++;
+                }
+                answer[i] = num;
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int c = kb.nextInt();
+        int [] array = new int[c];
+        for (int i=0;i<c;i++){
+            array[i]=kb.nextLine();
+        }
+        for (Integer x: T.solution(c, array)) {
+            System.out.print(x+" ");
+        }
+
+    }
+}
